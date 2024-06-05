@@ -17,7 +17,6 @@ list_of_files = [
     f"src/{package_name}/data_handler/excel_handler.py",
     f"src/{package_name}/data_handler/json_handler.py",
     f"src/{package_name}/data_handler/sql_handler.py",
-    f"src/{package_name}/data_handler/docx_handler.py",
     f"src/{package_name}/data_handler/html_handler.py",
     f"src/{package_name}/data_handler/text_handler.py",
     f"src/{package_name}/embeddings/__init__.py",
