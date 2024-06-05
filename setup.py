@@ -2,13 +2,15 @@ import os
 from setuptools import setup,find_packages
 from typing import List
 
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 HYPEN_E_DOT ="-e ."
 
 
 def get_requirements(file_path: str) -> List[str]:
     requirements = []
+    # Construct the full path to the requirements file
+    file_path = os.path.join(BASE_DIR, file_path)
     with open(file_path) as f:
         requirements = f.readlines()
         requirements = [req.replace("\n", "") for req in requirements]
@@ -16,6 +18,7 @@ def get_requirements(file_path: str) -> List[str]:
         if HYPEN_E_DOT in requirements:
             requirements.remove(HYPEN_E_DOT)
     return requirements
+
 
 with open('README.md', 'r') as f:
     long_description = f.read()
