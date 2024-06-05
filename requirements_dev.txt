@@ -17,4 +17,5 @@ tox==4.15.0
 black==22.8.0
 flake8==5.0.4
 mypy==0.971
-pydantic==2.7.3
+pydantic==1.9.0
+
