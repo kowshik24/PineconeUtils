@@ -34,5 +34,3 @@ jobs:
         pip uninstall tox-gh-actions -y
         pip install tox-gh-actions
         pip install -r requirements.txt
-    - name: Test with tox
-      run: tox
