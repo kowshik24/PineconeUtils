@@ -1,12 +1,12 @@
 from typing import List, Dict
 import uuid
-from text_handler import TextHandler
-from docx_handler import DocxHandler
-from pdf_handler import PDFHandler
-from pinecone_services import PineconeServices
-from cohere_services import CohereServices
-from cohere_embedding import CohereEmbedding
-from openai_embedding import OpenAIEmbedding
+from .text_handler import TextHandler
+from .docx_handler import DocxHandler
+from .pdf_handler import PDFHandler
+from .pinecone_services import PineconeServices
+from .cohere_services import CohereServices
+from .cohere_embedding import CohereEmbedding
+from .openai_embedding import OpenAIEmbedding
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 class PineconeUtils:
@@ -29,7 +29,8 @@ class PineconeUtils:
             return handler.read_pdf()
         else:
             raise ValueError("Unsupported file format")
-        return handler.read()
+        
+
 
     def chunk_data(self, data: str, chunk_size: int, chunk_overlap: int) -> List[str]:
         splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
