@@ -1,0 +1,6 @@
+{
+    "name": "jquery.iframe-transport.js",
+    "url": "",
+    "version": "1.0.0",
+    "description": "jQuery Ajax transport for sending files through iframe"
+}
