@@ -34,7 +34,7 @@ print("Current Directory: ", os.getcwd())
 print("Current Files: ", os.listdir("."))
 
 
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 REPO_NAME = "PineconeUtils"
 PKG_NAME = "pineconeutils"
 AUTHOR_NAME = "kowshik24"
