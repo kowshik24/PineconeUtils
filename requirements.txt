@@ -12,3 +12,5 @@ PyPDF2
 cohere
 pinecone-client
 openai
+
+-e .
