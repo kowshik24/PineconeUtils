@@ -1,19 +1,27 @@
 import os
-from setuptools import setup, find_packages
+from setuptools import setup,find_packages
 from typing import List
+
+
+
+HYPEN_E_DOT ="-e ."
+
 
 def get_requirements(file_path: str) -> List[str]:
     requirements = []
     with open(file_path) as f:
         requirements = f.readlines()
-        requirements = [req.strip() for req in requirements if req.strip() and req.strip() != '-e .']
+        requirements = [req.replace("\n", "") for req in requirements]
+
+        if HYPEN_E_DOT in requirements:
+            requirements.remove(HYPEN_E_DOT)
     return requirements
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-README = os.path.join(BASE_DIR, 'README.md')
-
-with open(README, 'r') as f:
+with open('README.md', 'r') as f:
     long_description = f.read()
+
+print("Current Directory: ", os.getcwd())
+print("Current Files: ", os.listdir("."))
 
 setup(
     name="pineconeutils",
