@@ -17,12 +17,14 @@ To install PineconeUtils, you can use pip:
 pip install pineconeutils
 ```
 
-
 # Usage
+
 Here's a quick example of how to use PineconeUtils:
 
 ## Setup
+
 First, ensure you have the necessary API keys and setup information:
+
 ```bash
 pinecone_api_key = "your_pinecone_api_key"
 cohere_api_key = "your_cohere_api_key"
@@ -32,13 +34,14 @@ namespace_id = "your_namespace_id"
 ```
 
 # Load Data
+
 Load data from a supported file format:
 
 ```bash
 from pineconeutils import PineconeUtils
 
 # Create instance of PineconeUtils
-pinecone = PineconeUtils(pinecone_api_key=cohere_api_key, openai_api_key=openai_api_key, index_name=index_name, namespace_id=namespace_id)
+pinecone = PineconeUtils(pinecone_api_key=pinecone_api_key, openai_api_key=openai_api_key,cohere_api_key =cohere_api_key, index_name=index_name, namespace_id=namespace_id)
 
 path = "path_to_your_file.docx"
 data = pinecone.load_data(path)
@@ -46,8 +49,11 @@ print("Loaded Data:", data)
 ```
 
 # Process Data
+
 ## Chunk and prepare data for embedding:
 
+
+## For openai
 ```bash
 chunks = pinecone.chunk_data(data, chunk_size=100, chunk_overlap=10)
 print("Data Chunks:", chunks)
@@ -55,7 +61,18 @@ print("Data Chunks:", chunks)
 prepared_data = pinecone.prepare_data(chunks, model="text-embedding-ada-002", service="openai")
 ```
 
+## For cohere
+
+```bash
+chunks = pinecone.chunk_data(data, chunk_size=100, chunk_overlap=10)
+print("Data Chunks:", chunks)
+
+prepared_data = pinecone.prepare_data(chunks, model="embed-english-v3.0", service="cohere",input_type="search_document")
+```
+For more about Cohere Embeddings: [Cohere Embeddings](https://docs.cohere.com/docs/embeddings)
+
 # Upsert Data
+
 ## Upsert data into Pinecone index:
 
 ```bash
@@ -68,10 +85,9 @@ print("Data upsertion was", "successful" if successful else "unsuccessful")
 To contribute to the development of PineconeUtils, you can clone the repository and submit pull requests.
 
 # Support
+
 If you encounter any issues or have questions, please file an issue on the GitHub repository.
 
 # License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-
-
